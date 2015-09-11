@@ -1,0 +1,97 @@
+html {
+    height: 100%;
+    font-size: 14px;
+    font-family: Sans-serif;
+}
+body {
+    height: 100%;
+    margin: 10px;
+    padding: 0;
+}
+#controls {
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+#result {
+	color: darkblue;
+}
+#breakdown {
+	padding-left: 20px;
+}
+#breakdown b {
+	color: darkblue;
+}
+#textarea {
+    width: 100%;
+    height: 10em;
+}
+#pedigree {
+    padding: 0 1em 0 3px;
+    border: 1px solid gray;
+    background-color: #F4F8F8;
+    float: right;
+    width: calc(75% - 20px);
+    height: 85%;
+    overflow: auto;
+}
+table {
+    border-collapse: collapse;
+    font-size: 1em;
+}
+td {
+    padding: 0;
+}
+#pedigree td:first-child {
+    width: 8em;
+    padding: 3px;
+    position: relative;
+}
+tr.s > td:first-child::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 2px;
+    height: 50%;
+    border: solid gray;
+    border-width: 1px 0 0 1px
+}
+tr.d > td:first-child::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    width: 2px;
+    height: 50%;
+    border: solid gray;
+    border-width: 0 0 1px 1px
+}
+input.ind {
+    width: 10em;
+    border: 1px solid gray;
+}
+.more {
+    white-space: nowrap;
+	cursor: pointer;
+}
+ul.name-choices {
+    position: absolute;
+	z-index: 1;
+    margin: 0;
+    padding: 0;
+    border: 1px solid gray;
+    border-top: none;
+    background-color: white;
+    color: gray;
+    list-style: none;
+}
+ul.name-choices > li {
+    margin: 0;
+    padding: 0;
+    padding: 0 2px;
+    cursor: pointer;
+}
+ul.name-choices > li:hover {
+    background-color: #E4EEEE;
+}
