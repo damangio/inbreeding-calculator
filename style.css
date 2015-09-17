@@ -29,7 +29,7 @@ body {
 #pedigree {
     padding: 0 1em 0 3px;
     border: 1px solid gray;
-    background-color: #F4F8F8;
+    background-color: #F0F8F8;
     float: right;
     width: calc(75% - 20px);
     height: 85%;

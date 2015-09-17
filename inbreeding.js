@@ -29,6 +29,8 @@ for (var i = 0; i <= MAX_GENS; i += 1) {
     generations[i] = {};
 }
 generations[0][''] = pedigree;
+/* Cache the inbreeding coefficients of ancestors */
+var ancestorCache;
 
 /*****************************
 Utility functions
@@ -50,7 +52,7 @@ function getNodeFromCode(code) {
         if (code[i] in node) {
             node = node[code[i]];
         } else {
-            throw Exception('Node matching code ' + code + ' does not exist');
+            throw 'Node matching code ' + code + ' does not exist';
         }
     }
     return node;
@@ -61,23 +63,49 @@ function getNodeFromName(name) {
         if (name[i] in node) {
             node = node[name[i]];
         } else {
-            throw Exception('Node matching name "' + name + '" does not exist');
+            throw 'Node matching name "' + name + '" does not exist';
         }
     }
     
     return node;
 }
 
-function updateField(code, name) {
-    var field = $('input#' + (code || 'offspring')); // empty if generation is not visible
-    field.val(name);
-    field.data('oldName', name); // Store the new name
+Number.prototype.toFixedOrPrecision = function (fixedDigits) {
+    /* Format the floating-point number with the given number of 
+    fixed digits, but if that makes it appear to be zero, format it
+    with 1 precision digit instead. */
+    var fixed = this.toFixed(fixedDigits);
+    if (parseFloat(fixed) === 0.0) {
+        return this.toPrecision(1);
+    }
+    return fixed;
 }
 
 
 /*****************************
 Functions that manipulate the UI
 *****************************/
+
+function highlightField(field) {
+    // Highlight a field in yellow and then fade back to white
+    var l = 50;
+    var fade;
+    field.css({'background-color': 'hsl(60, 100%, 50%)'});
+    fade = window.setInterval(function () {
+        l += 10;
+        field.css({'background-color': 'hsl(60, 100%, ' + l + '%)'});
+        if (l >= 100) {
+            clearInterval(fade);
+        }
+        }, 100);
+}
+
+function updateField(code, name) {
+    var field = $('input#' + (code || 'offspring')); // empty if generation is not visible
+    field.val(name);
+    field.data('oldName', name); // Store the new name
+    highlightField(field);
+}
 
 function clearResult() {
     $('#result, #breakdown').html('');
@@ -197,13 +225,13 @@ function buildNameChoices(node, text, nameChoices) {
     }
 }
 
-function showNameChoices() {
+function showNameChoices(event) {
     var text = $(this).val();
     var node;
     var nameChoices = [];
     var i;
     
-    if (text.length === 0) {
+    if (text.length === 0 || event.keyCode === 13) { // Ignore when the Enter key is pressed
         return;
     }
     
@@ -274,9 +302,68 @@ function setFieldFromMenu () {
     data = $.extend(true, {}, node);
     
     populateField(field, data);
+
+    replicate(getCode(field));
     
     // Remove the menu
     $(this).parent().remove();
+}
+
+function replicate(code) {
+    var cleared = false;
+    var parentType; // 's' or 'd'
+    var node;
+    var offspringCode;
+    var offspringNode;
+    var otherOffspringCode;
+    var otherOffspringNode;
+    if (code.length < 2) {
+        return;
+    }
+    parentType = code.slice(-1);
+    
+    try {
+        node = getNodeFromCode(code);
+    } catch (e) {
+        // We deleted the name.
+        cleared = true;
+    }
+    offspringCode = code.slice(0, -1)
+    try {
+        offspringNode = getNodeFromCode(offspringCode);
+    } catch (e) {
+        // This individual's offspring was blank. Do nothing.
+        return;
+    }
+
+    for (otherOffspringCode in ancestors[offspringNode.name]) {
+        if (otherOffspringCode !== offspringCode) {
+            if (otherOffspringCode.length >= MAX_GENS) {
+                break;
+            }
+            otherOffspringNode = getNodeFromCode(otherOffspringCode);
+            if (cleared) {
+                clear(
+                    otherOffspringNode[parentType],
+                    otherOffspringCode + parentType);
+            } else {
+                if (!(parentType in otherOffspringNode)) {
+                    otherOffspringNode[parentType] = {};
+                    generations[otherOffspringCode.length + 1][otherOffspringCode + parentType]
+                        = otherOffspringNode[parentType];
+                }
+                populate(
+                    otherOffspringNode[parentType],
+                    otherOffspringCode + parentType,
+                    node);
+            }
+        }
+    }
+    updateMoreLabels();
+}
+
+function replicateField() {
+    replicate(getCode($(this)));
 }
 
 
@@ -393,22 +480,22 @@ function clearName(name, code) {
 
 function changeField() {
     var oldName = $(this).data('oldName');
-    var new_name = $(this).val();
+    var newName = $(this).val();
     var code = getCode($(this));
     if (oldName) {
         // Remove data from ancestors and names
         clearName(oldName, code);
     }
-    if (new_name) {
+    if (newName) {
         // Add or overwrite data in pedigree
         // Add data to generations if necessary
         // Add data to ancestors and names
-        addInd(code, new_name);
+        addInd(code, newName);
     } else {
         // Remove data from pedigree and generations
         removeInd(code);
     }
-    $(this).data('oldName', new_name); // Store the new name
+    $(this).data('oldName', newName); // Store the new name
 }
 
 
@@ -416,20 +503,100 @@ function changeField() {
 Buttons
 *****************************/
 
-function calculate() {
-    var ancs;
-    var common = []; // common ancestors
+// verify() was made unnecessary by the addition of auto-replication
+// It is not used.
+function verify() {
+    // Make sure there are no glaring errors in the data
+    var node;
+    var sireName;
+    var damName;
+    var code;
+    for (name in ancestors) {
+        sireName = damName = null;
+        for (code in ancestors[name]) {
+            node = getNodeFromCode(code);
+            if ('s' in node) {
+                if (sireName && sireName !== node.s.name) {
+                    alert('Error: Individual ' + name + ' is listed with two different sires: ' +
+                        sireName + ' and ' + node.s.name + '.');
+                    return false;
+                }
+                sireName = node.s.name;
+            }
+            if ('d' in node) {
+                if (damName && damName !== node.d.name) {
+                    alert('Error: Individual ' + name + ' is listed with two different dams: ' +
+                        damName + ' and ' + node.d.name + '.');
+                    return false;
+                }
+                damName = node.d.name;
+            }
+        }
+    }
+    return true;
+}
+
+function calculateForName(name) {
+    // Given the name of a common ancestor, calculate the inbreeding coefficient for it.
+    var code;
+    var node;
+    var results = [];
+    for (code in ancestors[name]) {
+        node = getNodeFromCode(code);
+        if ('s' in node && 'd' in node) {
+            // Calculate for all ocurrences that have both parents
+            results.push(calculateForCode(code));
+        }
+    }
+    // Choose the highest value
+    if (results.length > 0) {
+        return Math.max.apply(null, results);
+    }
+    // no inbreeding paths
+    return 0.0
+}
+
+function calculateForCode(baseCode, list) {
+    /* Given the code of a specific node, calculate the inbreeding coefficient for it.
+    If 'list' is true, return an array of objects with name and inbreeding coefficient
+    for each common ancestor.
+    Otherwise, return the total inbreeding coefficient. */
+    var common = []; // list of common ancestors, or just their inbreeding coefficients
+    var ancs; // copy of ancestors
     var name;
+    var code;
     var code1;
     var code2;
     var i;
     var interm = {}; // intermediate ancestor names (object used like a set)
     var path;
-        
-    $(currentField).blur();
-    
-    // Deep copy of ancestors because we will iterate over it desctructively
+    var inbreeding;
+    var anc_inbreeding;
+
+    // Deep copy of ancestors because we might modify it and we will iterate
+    // over it destructively
     ancs = $.extend(true, {}, ancestors);
+
+    if (baseCode.length > 0) {
+        // This is a common ancestor of the offspring. Trim ancs and adjust codes
+        for (name in ancs) {
+            for (code in ancs[name]) {
+                if (code.indexOf(baseCode) === 0) {
+                    // This is an ancestor of our node (or it is our node).
+                    // Trim our code off the front of the other code
+                    ancs[name][code.slice(baseCode.length)] = null;
+                }
+                delete ancs[name][code];
+            }
+            if ($.isEmptyObject(ancs[name])) {
+                // We deleted all codes for this name
+                delete ancs[name];
+            }
+        }
+    }
+
+    // Iterate over ancs desctructively
+    // This is the most efficient way to iterate over all pairs of attributes
     for (name in ancs) {
         for (code1 in ancs[name]) {
             for (code2 in ancs[name]) {
@@ -442,12 +609,12 @@ function calculate() {
                     // Make sure there are no intermediate ancestors common to the two paths
                     // Build the set of intermediate ancestors from the first code
                     for (i = 1; i < code1.length; i += 1) {
-                        interm[getNodeFromCode(code1.slice(0, i)).name] = null;
+                        interm[getNodeFromCode(baseCode + code1.slice(0, i)).name] = null;
                     }
                     // Walk through the intermediate ancestors of the second code
                     // and make sure none are in the first code.
                     for (i = 1; i < code2.length; i += 1) {
-                        if (getNodeFromCode(code2.slice(0, i)).name in interm) {
+                        if (getNodeFromCode(baseCode + code2.slice(0, i)).name in interm) {
                             // Found a intermediate ancestor that is in both codes.
                             // This is not an inbreeding path.
                             path = false;
@@ -455,12 +622,23 @@ function calculate() {
                         }
                     }
                     if (path) {
-                        console.log(name, code1, code2);
-                        common.push({
-                            name: name,
-                            // 2^(-(length1 + length2 - 1)) using shift operator
-                            inbreeding: 1.0 / (1 << (code1.length + code2.length - 1))
-                            });
+                        if (name in ancestorCache) {
+                            anc_inbreeding = ancestorCache[name];
+                        } else {
+                            anc_inbreeding = calculateForName(name);
+                            ancestorCache[name] = anc_inbreeding;
+                        }
+                        // 2^(-(length1 + length2 - 1))*(1 - FA) using shift operator
+                        inbreeding = 1.0 /
+                            (1 << (code1.length + code2.length - 1)) * (1.0 + anc_inbreeding);
+                        if (list) {
+                            common.push({
+                                name: name,
+                                inbreeding: inbreeding
+                                });
+                        } else {
+                            common.push(inbreeding);
+                        }
                     }
                 }
             }
@@ -468,16 +646,68 @@ function calculate() {
             delete ancs[name][code1];
         }
     }
-    common.sort(function (a, b) { return a.inbreeding < b.inbreeding; });
-
-    $('#result').text((common.map(function(anc) {
-        return anc.inbreeding;
-        }).reduce(function(a, b) {
+    if (list) {
+        return common;
+    } else {
+        return common.reduce(function(a, b) {
             return a + b;
-            }, 0.0)
-            * 100.0).toFixed(2) + '%');
-    $('#breakdown').html(common.map(function(anc) {
-        return '<li><b>' + (anc.inbreeding * 100).toFixed(2) + '%</b> through ' + anc.name + '</li>';
+            }, 0.0);
+    }
+}   
+
+function calculate() {
+    // User clicked the Calculate button
+    $('#result').text('Calculating...');
+    // Use setTimeout so we see the DOM change immediately.
+    window.setTimeout(doCalculation, 0);
+}
+    
+function doCalculation() {
+    var common; // list of common ancestors
+    var common2 = []; // consolidated list of common ancestors
+    var interval;
+    var i;
+    
+    $(currentField).blur();
+    ancestorCache = {}; // clear cache
+    
+    // Recursive
+    common = calculateForCode('', true);
+    
+    common.sort(function (a, b) {
+        if (a.inbreeding === b.inbreeding) {
+            return a.name < b.name ? -1 : 1;
+        }
+        return a.inbreeding < b.inbreeding ? 1 : -1;
+        });
+
+    for (i = 0; i < common.length; i += 1) {
+        if (i > 0 && common[i - 1].name === common[i].name &&
+                common[i - 1].inbreeding === common[i].inbreeding) {
+            // Don't add this one, but increment the previous one
+            if ('times' in common2[common2.length - 1]) {
+                common2[common2.length - 1].times += 1;
+            } else {
+                common2[common2.length - 1].times = 2;
+            }
+        } else {
+            // Add this one
+            common2.push(common[i]);
+        }
+    }
+
+    $('#result').text((common2.reduce(function(a, b) {
+            return {inbreeding: a.inbreeding + b.inbreeding * (b.times || 1)};
+            }, {inbreeding: 0.0}
+            ).inbreeding * 100.0).toFixedOrPrecision(2) + '%');
+    $('#breakdown').html(common2.map(function(anc) {
+        if ('times' in anc) {
+            return '<li><b>' + (anc.inbreeding * 100).toFixedOrPrecision(2)
+                + '%</b> through ' + anc.name + '&nbsp;<b>(x' + anc.times + ')</b></li>';
+        } else {
+            return '<li><b>' + (anc.inbreeding * 100).toFixedOrPrecision(2)
+                + '%</b> through ' + anc.name + '</li>';
+        }
         }));
 }
 
@@ -510,7 +740,7 @@ function clearField (field) {
 
     clear(node, code); // Recursive
     
-    updateMoreLabels();
+    replicate(code);
 }
 
 function showData(field) {
@@ -649,6 +879,7 @@ $(document).ready(function() {
         .on('focusout', 'input.ind', clearCurrentField)
         .on('click', '.more', showMore)
         .on('change', 'input.ind', changeField)
+        .on('change', 'input.ind', replicateField)
         .on('keyup', 'input.ind', showNameChoices)
         .on('click', 'ul.name-choices li', setFieldFromMenu)
         .on('blur', 'input.ind', hideNameChoices);
