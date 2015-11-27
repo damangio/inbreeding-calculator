@@ -86,6 +86,16 @@ Number.prototype.toFixedOrPrecision = function (fixedDigits) {
 Functions that manipulate the UI
 *****************************/
 
+function wideFields() {
+    // toggle wide fields
+    if ($(this).prop('checked')) {
+        $('head').append(
+            '<style id="wide_style">input.ind{ width: 15em; }</style>');
+    } else {
+        $('#wide_style').remove();
+    }
+}
+
 function highlightField(field) {
     // Highlight a field in yellow and then fade back to white
     var l = 50;
@@ -862,6 +872,7 @@ Initialization
 
 $(document).ready(function() {
     $('#generations').change(showHideGenerationsHandler);
+    $('#wide_fields').change(wideFields);
     // Buttons. Use mousedown instead of click because the focused field is losing focus.
     $('#calculate').mousedown(calculate);
     $('#clear, #clear-selected, #populate, #populate-selected')
