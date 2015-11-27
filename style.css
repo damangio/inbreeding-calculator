@@ -95,3 +95,11 @@ ul.name-choices > li {
 ul.name-choices > li:hover {
     background-color: #E4EEEE;
 }
+#confirmDialog {
+	position: absolute;
+	z-index: 10;
+	width: 300px;
+	background: white;
+	border: 1px solid gray;
+	text-align: center;
+}

@@ -751,6 +751,7 @@ function clearField (field) {
     clear(node, code); // Recursive
     
     replicate(code);
+    updateMoreLabels();
 }
 
 function showData(field) {
@@ -845,12 +846,38 @@ function populateFieldFromPaste(field) {
     populateField(field, data);
 }
 
+// confirmation dialog
+function confirm(message, noButton, yesButton, func) {
+    $('body').append(
+        '<div id="confirmDialog">' +
+        '<p>' + message + '</p>' +
+        '<p><button id="confirmNo">' + noButton + '</button>&nbsp;&nbsp;' +
+            '<button id="confirmYes">' + yesButton + '</button></p>' +
+        '</div>');
+    $('#confirmNo').click(function () {
+        $('#confirmDialog').remove();
+    });
+    $('#confirmYes').click(function () {
+        $('#confirmDialog').remove();
+        func();
+    });
+    $('#confirmDialog').css({
+        left: ($(window).width()/2 - 150) + 'px',
+        top: ($(window).height()/2 -100) + 'px',
+    })
+}
+
 function clearAll() {
-    clearField($('input#offspring'));
+    confirm('Clear entire pedigree?', 'Cancel', 'Clear', function () {
+        clearField($('input#offspring'));
+    });
 }
 function clearSelected() {
-    $(currentField).change();
-    clearField(currentField);
+    var field = currentField;
+    confirm('Clear data?', 'Cancel', 'Clear', function () {
+        $(field).change();
+        clearField(field);
+    });
 }
 function showOffspringData() {
     showData($('input#offspring'));
