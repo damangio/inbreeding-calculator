@@ -10,6 +10,8 @@ var MAX_GENS = 12
 
 // Used with the buttons. Value is null or a jQuery object.
 var currentField = null;
+// Field to focus after changing number of generations. Value is null or a jQuery object.
+var generationsField = null;
 
 /* The four important data structures */
 /* pedigree stores the pedigree of the base individual in a tree structure,
@@ -120,6 +122,7 @@ function updateField(code, name) {
 function clearResult() {
     $('#result, #breakdown').html('');
 }
+
 // Use a 1/10-second delay for these because the buttons need to grab
 // the current field before it stops being current as a result of losing focus.
 function setCurrentField() {
@@ -159,9 +162,18 @@ function updateMoreLabels(curGens) {
     }
 }
 
-function showHideGenerations(numGens) {
+function focusGenerations() {
+    generationsField = currentField;
+}
+
+function unfocusGenerations() {
+    generationsField = null;
+}
+
+function showHideGenerations(numGens, focusField) {
     var curGens = parseInt($('input.ind').last().closest('table').data('level'));
     var gen;
+    var testField;
     if (numGens === undefined) {
         numGens = parseInt($('#generations').val());
     }
@@ -211,6 +223,29 @@ function showHideGenerations(numGens) {
     }
     
     updateMoreLabels(numGens);
+    
+    // Focus the field the user last worked with.
+    if (focusField !== undefined) {
+        focusField.focus();
+    } else if (generationsField) {
+        if (document.contains(generationsField[0])) {
+        // Field hasn't been removed
+            generationsField.focus();
+        } else {
+            // Field has been removed. Walk down the pedigree looking for
+            // a field that exists.
+            for (gen = generationsField.attr('id').length - 1; gen >= 0; gen -= 1) {
+                testField = $('#' + generationsField.attr('id').slice(0, gen));
+                if (testField.length) {
+                    // field exists
+                    testField.focus();
+                    break;
+                }
+            }
+        }
+    } else {
+        $('#offspring').focus();
+    }
 }
 
 // Allows us to treat showHideGenerations as a normal function
@@ -220,7 +255,8 @@ function showHideGenerationsHandler() {
 }
 
 function showMore() {
-    showHideGenerations(parseInt($(this).closest('table').data('level')) + 1);
+    showHideGenerations(parseInt($(this).closest('table').data('level')) + 1,
+        $(this).parent().prev().find('input.ind'));
 }
 
 // The recursive part of showNameChoices
@@ -898,7 +934,10 @@ Initialization
 *****************************/
 
 $(document).ready(function() {
-    $('#generations').change(showHideGenerationsHandler);
+    $('#generations').change(showHideGenerationsHandler)
+        .focus(focusGenerations)
+        .blur(unfocusGenerations)
+        .change(unfocusGenerations);
     $('#wide_fields').change(wideFields);
     // Buttons. Use mousedown instead of click because the focused field is losing focus.
     $('#calculate').mousedown(calculate);
