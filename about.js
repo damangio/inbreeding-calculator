@@ -16,6 +16,6 @@ var examples = [
 
 $(document).ready(function () {
     for (var i = 0; i < examples.length; i++) {
-        $('textarea#' + examples[i]).load('/Examples/' + examples[i] +'.json');
+        $('textarea#' + examples[i]).load('Examples/' + examples[i] +'.json');
     }
 });
