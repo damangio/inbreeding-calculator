@@ -1,0 +1,279 @@
+{
+  "name": "Charles II of Spain",
+  "s": {
+    "name": "Philip IV of Spain",
+    "s": {
+      "name": "Philip III of Spain",
+      "s": {
+        "name": "Philip II of Spain",
+        "s": {
+          "name": "Charles V, Holy Roman Emperor",
+          "s": {
+            "name": "Philip I of Castile"
+          },
+          "d": {
+            "name": "Joanna of Castile"
+          }
+        },
+        "d": {
+          "name": "Isabella of Portugal"
+        }
+      },
+      "d": {
+        "name": "Anna of Austria (b. 1549)",
+        "s": {
+          "name": "Maximilian II, Holy Roman Emperor",
+          "s": {
+            "name": "Ferdinand I, Holy Roman Emperor",
+            "s": {
+              "name": "Philip I of Castile"
+            },
+            "d": {
+              "name": "Joanna of Castile"
+            }
+          },
+          "d": {
+            "name": "Anna of Bohemia and Hungary"
+          }
+        },
+        "d": {
+          "name": "Maria of Spain",
+          "s": {
+            "name": "Charles V, Holy Roman Emperor",
+            "s": {
+              "name": "Philip I of Castile"
+            },
+            "d": {
+              "name": "Joanna of Castile"
+            }
+          },
+          "d": {
+            "name": "Isabella of Portugal"
+          }
+        }
+      }
+    },
+    "d": {
+      "name": "Margaret of Austria",
+      "s": {
+        "name": "Charles II, Archduke of Austria",
+        "s": {
+          "name": "Ferdinand I, Holy Roman Emperor",
+          "s": {
+            "name": "Philip I of Castile"
+          },
+          "d": {
+            "name": "Joanna of Castile"
+          }
+        },
+        "d": {
+          "name": "Anna of Bohemia and Hungary"
+        }
+      },
+      "d": {
+        "name": "Maria Anna of Bavaria (b. 1551)",
+        "s": {
+          "name": "Albert V, Duke of Bavaria"
+        },
+        "d": {
+          "name": "Anna of Austria (b. 1528)",
+          "s": {
+            "name": "Ferdinand I, Holy Roman Emperor",
+            "s": {
+              "name": "Philip I of Castile"
+            },
+            "d": {
+              "name": "Joanna of Castile"
+            }
+          },
+          "d": {
+            "name": "Anna of Bohemia and Hungary"
+          }
+        }
+      }
+    }
+  },
+  "d": {
+    "name": "Mariana of Austria",
+    "s": {
+      "name": "Ferdinand III, Holy Roman Emperor",
+      "s": {
+        "name": "Ferdinand II, Holy Roman Emperor",
+        "s": {
+          "name": "Charles II, Archduke of Austria",
+          "s": {
+            "s": {
+              "name": "Philip I of Castile"
+            },
+            "d": {
+              "name": "Joanna of Castile"
+            },
+            "name": "Ferdinand I, Holy Roman Emperor"
+          },
+          "d": {
+            "name": "Anna of Bohemia and Hungary"
+          }
+        },
+        "d": {
+          "name": "Maria Anna of Bavaria (b. 1551)",
+          "s": {
+            "name": "Albert V, Duke of Bavaria"
+          },
+          "d": {
+            "s": {
+              "s": {
+                "name": "Philip I of Castile"
+              },
+              "d": {
+                "name": "Joanna of Castile"
+              },
+              "name": "Ferdinand I, Holy Roman Emperor"
+            },
+            "d": {
+              "name": "Anna of Bohemia and Hungary"
+            },
+            "name": "Anna of Austria (b. 1528)"
+          }
+        }
+      },
+      "d": {
+        "name": "Maria Anna of Bavaria (b. 1574)",
+        "s": {
+          "name": "William V, Duke of Bavaria",
+          "s": {
+            "name": "Albert V, Duke of Bavaria"
+          },
+          "d": {
+            "name": "Anna of Austria (b. 1528)",
+            "s": {
+              "s": {
+                "name": "Philip I of Castile"
+              },
+              "d": {
+                "name": "Joanna of Castile"
+              },
+              "name": "Ferdinand I, Holy Roman Emperor"
+            },
+            "d": {
+              "name": "Anna of Bohemia and Hungary"
+            }
+          }
+        },
+        "d": {
+          "name": "Renata of Lorraine",
+          "s": {
+            "name": "Francis I, Duke of Lorraine"
+          },
+          "d": {
+            "name": "Christina of Denmark",
+            "s": {
+              "name": "Christian II of Denmark"
+            },
+            "d": {
+              "name": "Isabella of Austria",
+              "s": {
+                "name": "Philip I of Castile"
+              },
+              "d": {
+                "name": "Joanna of Castile"
+              }
+            }
+          }
+        }
+      }
+    },
+    "d": {
+      "name": "Maria Anna of Spain",
+      "s": {
+        "name": "Philip III of Spain",
+        "s": {
+          "s": {
+            "s": {
+              "name": "Philip I of Castile"
+            },
+            "d": {
+              "name": "Joanna of Castile"
+            },
+            "name": "Charles V, Holy Roman Emperor"
+          },
+          "d": {
+            "name": "Isabella of Portugal"
+          },
+          "name": "Philip II of Spain"
+        },
+        "d": {
+          "s": {
+            "s": {
+              "s": {
+                "name": "Philip I of Castile"
+              },
+              "d": {
+                "name": "Joanna of Castile"
+              },
+              "name": "Ferdinand I, Holy Roman Emperor"
+            },
+            "d": {
+              "name": "Anna of Bohemia and Hungary"
+            },
+            "name": "Maximilian II, Holy Roman Emperor"
+          },
+          "d": {
+            "s": {
+              "s": {
+                "name": "Philip I of Castile"
+              },
+              "d": {
+                "name": "Joanna of Castile"
+              },
+              "name": "Charles V, Holy Roman Emperor"
+            },
+            "d": {
+              "name": "Isabella of Portugal"
+            },
+            "name": "Maria of Spain"
+          },
+          "name": "Anna of Austria (b. 1549)"
+        }
+      },
+      "d": {
+        "name": "Margaret of Austria",
+        "s": {
+          "s": {
+            "s": {
+              "name": "Philip I of Castile"
+            },
+            "d": {
+              "name": "Joanna of Castile"
+            },
+            "name": "Ferdinand I, Holy Roman Emperor"
+          },
+          "d": {
+            "name": "Anna of Bohemia and Hungary"
+          },
+          "name": "Charles II, Archduke of Austria"
+        },
+        "d": {
+          "s": {
+            "name": "Albert V, Duke of Bavaria"
+          },
+          "d": {
+            "s": {
+              "s": {
+                "name": "Philip I of Castile"
+              },
+              "d": {
+                "name": "Joanna of Castile"
+              },
+              "name": "Ferdinand I, Holy Roman Emperor"
+            },
+            "d": {
+              "name": "Anna of Bohemia and Hungary"
+            },
+            "name": "Anna of Austria (b. 1528)"
+          },
+          "name": "Maria Anna of Bavaria (b. 1551)"
+        }
+      }
+    }
+  }
+}

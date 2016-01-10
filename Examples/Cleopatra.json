@@ -1,0 +1,852 @@
+{
+  "name": "Cleopatra VII",
+  "d": {
+    "name": "Cleopatra V",
+    "s": {
+      "name": "Ptolemy X",
+      "s": {
+        "name": "Ptolemy VII",
+        "s": {
+          "name": "Ptolemy V",
+          "s": {
+            "s": {
+              "s": {
+                "s": {
+                  "name": "Ptolemy I"
+                },
+                "d": {
+                  "name": "Berenice I"
+                },
+                "name": "Ptolemy II"
+              },
+              "d": {
+                "name": "Arsinoe I"
+              },
+              "name": "Ptolemy III"
+            },
+            "d": {
+              "name": "Berenice II"
+            },
+            "name": "Ptolemy IV"
+          },
+          "d": {
+            "s": {
+              "s": {
+                "s": {
+                  "name": "Ptolemy I"
+                },
+                "d": {
+                  "name": "Berenice I"
+                },
+                "name": "Ptolemy II"
+              },
+              "d": {
+                "name": "Arsinoe I"
+              },
+              "name": "Ptolemy III"
+            },
+            "d": {
+              "name": "Berenice II"
+            },
+            "name": "Arsinoe III"
+          }
+        },
+        "d": {
+          "name": "Cleopatra I",
+          "s": {
+            "name": "Antiochus III of Syria"
+          }
+        }
+      },
+      "d": {
+        "name": "Cleopatra III",
+        "s": {
+          "name": "Ptolemy VI",
+          "s": {
+            "name": "Ptolemy V",
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Ptolemy IV"
+            },
+            "d": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Arsinoe III"
+            }
+          },
+          "d": {
+            "name": "Cleopatra I",
+            "s": {
+              "name": "Antiochus III of Syria"
+            }
+          }
+        },
+        "d": {
+          "name": "Cleopatra II",
+          "s": {
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Ptolemy IV"
+            },
+            "d": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Arsinoe III"
+            },
+            "name": "Ptolemy V"
+          },
+          "d": {
+            "s": {
+              "name": "Antiochus III of Syria"
+            },
+            "name": "Cleopatra I"
+          }
+        }
+      }
+    },
+    "d": {
+      "name": "Cleopatra IV",
+      "s": {
+        "name": "Ptolemy IX",
+        "s": {
+          "name": "Ptolemy VII",
+          "s": {
+            "name": "Ptolemy V",
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Ptolemy IV"
+            },
+            "d": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Arsinoe III"
+            }
+          },
+          "d": {
+            "name": "Cleopatra I",
+            "s": {
+              "name": "Antiochus III of Syria"
+            }
+          }
+        },
+        "d": {
+          "name": "Cleopatra III",
+          "s": {
+            "name": "Ptolemy VI",
+            "s": {
+              "name": "Ptolemy V",
+              "s": {
+                "s": {
+                  "s": {
+                    "s": {
+                      "name": "Ptolemy I"
+                    },
+                    "d": {
+                      "name": "Berenice I"
+                    },
+                    "name": "Ptolemy II"
+                  },
+                  "d": {
+                    "name": "Arsinoe I"
+                  },
+                  "name": "Ptolemy III"
+                },
+                "d": {
+                  "name": "Berenice II"
+                },
+                "name": "Ptolemy IV"
+              },
+              "d": {
+                "s": {
+                  "s": {
+                    "s": {
+                      "name": "Ptolemy I"
+                    },
+                    "d": {
+                      "name": "Berenice I"
+                    },
+                    "name": "Ptolemy II"
+                  },
+                  "d": {
+                    "name": "Arsinoe I"
+                  },
+                  "name": "Ptolemy III"
+                },
+                "d": {
+                  "name": "Berenice II"
+                },
+                "name": "Arsinoe III"
+              }
+            },
+            "d": {
+              "name": "Cleopatra I",
+              "s": {
+                "name": "Antiochus III of Syria"
+              }
+            }
+          },
+          "d": {
+            "name": "Cleopatra II",
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "s": {
+                      "name": "Ptolemy I"
+                    },
+                    "d": {
+                      "name": "Berenice I"
+                    },
+                    "name": "Ptolemy II"
+                  },
+                  "d": {
+                    "name": "Arsinoe I"
+                  },
+                  "name": "Ptolemy III"
+                },
+                "d": {
+                  "name": "Berenice II"
+                },
+                "name": "Ptolemy IV"
+              },
+              "d": {
+                "s": {
+                  "s": {
+                    "s": {
+                      "name": "Ptolemy I"
+                    },
+                    "d": {
+                      "name": "Berenice I"
+                    },
+                    "name": "Ptolemy II"
+                  },
+                  "d": {
+                    "name": "Arsinoe I"
+                  },
+                  "name": "Ptolemy III"
+                },
+                "d": {
+                  "name": "Berenice II"
+                },
+                "name": "Arsinoe III"
+              },
+              "name": "Ptolemy V"
+            },
+            "d": {
+              "s": {
+                "name": "Antiochus III of Syria"
+              },
+              "name": "Cleopatra I"
+            }
+          }
+        }
+      },
+      "d": {
+        "name": "Cleopatra Philadelphus",
+        "s": {
+          "name": "Ptolemy VII",
+          "s": {
+            "name": "Ptolemy V",
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Ptolemy IV"
+            },
+            "d": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Arsinoe III"
+            }
+          },
+          "d": {
+            "name": "Cleopatra I",
+            "s": {
+              "name": "Antiochus III of Syria"
+            }
+          }
+        },
+        "d": {
+          "name": "Cleopatra III",
+          "s": {
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "s": {
+                      "name": "Ptolemy I"
+                    },
+                    "d": {
+                      "name": "Berenice I"
+                    },
+                    "name": "Ptolemy II"
+                  },
+                  "d": {
+                    "name": "Arsinoe I"
+                  },
+                  "name": "Ptolemy III"
+                },
+                "d": {
+                  "name": "Berenice II"
+                },
+                "name": "Ptolemy IV"
+              },
+              "d": {
+                "s": {
+                  "s": {
+                    "s": {
+                      "name": "Ptolemy I"
+                    },
+                    "d": {
+                      "name": "Berenice I"
+                    },
+                    "name": "Ptolemy II"
+                  },
+                  "d": {
+                    "name": "Arsinoe I"
+                  },
+                  "name": "Ptolemy III"
+                },
+                "d": {
+                  "name": "Berenice II"
+                },
+                "name": "Arsinoe III"
+              },
+              "name": "Ptolemy V"
+            },
+            "d": {
+              "s": {
+                "name": "Antiochus III of Syria"
+              },
+              "name": "Cleopatra I"
+            },
+            "name": "Ptolemy VI"
+          },
+          "d": {
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "s": {
+                      "name": "Ptolemy I"
+                    },
+                    "d": {
+                      "name": "Berenice I"
+                    },
+                    "name": "Ptolemy II"
+                  },
+                  "d": {
+                    "name": "Arsinoe I"
+                  },
+                  "name": "Ptolemy III"
+                },
+                "d": {
+                  "name": "Berenice II"
+                },
+                "name": "Ptolemy IV"
+              },
+              "d": {
+                "s": {
+                  "s": {
+                    "s": {
+                      "name": "Ptolemy I"
+                    },
+                    "d": {
+                      "name": "Berenice I"
+                    },
+                    "name": "Ptolemy II"
+                  },
+                  "d": {
+                    "name": "Arsinoe I"
+                  },
+                  "name": "Ptolemy III"
+                },
+                "d": {
+                  "name": "Berenice II"
+                },
+                "name": "Arsinoe III"
+              },
+              "name": "Ptolemy V"
+            },
+            "d": {
+              "s": {
+                "name": "Antiochus III of Syria"
+              },
+              "name": "Cleopatra I"
+            },
+            "name": "Cleopatra II"
+          }
+        }
+      }
+    }
+  },
+  "s": {
+    "name": "Ptolemy XII",
+    "s": {
+      "s": {
+        "s": {
+          "s": {
+            "s": {
+              "s": {
+                "s": {
+                  "name": "Ptolemy I"
+                },
+                "d": {
+                  "name": "Berenice I"
+                },
+                "name": "Ptolemy II"
+              },
+              "d": {
+                "name": "Arsinoe I"
+              },
+              "name": "Ptolemy III"
+            },
+            "d": {
+              "name": "Berenice II"
+            },
+            "name": "Ptolemy IV"
+          },
+          "d": {
+            "s": {
+              "s": {
+                "s": {
+                  "name": "Ptolemy I"
+                },
+                "d": {
+                  "name": "Berenice I"
+                },
+                "name": "Ptolemy II"
+              },
+              "d": {
+                "name": "Arsinoe I"
+              },
+              "name": "Ptolemy III"
+            },
+            "d": {
+              "name": "Berenice II"
+            },
+            "name": "Arsinoe III"
+          },
+          "name": "Ptolemy V"
+        },
+        "d": {
+          "s": {
+            "name": "Antiochus III of Syria"
+          },
+          "name": "Cleopatra I"
+        },
+        "name": "Ptolemy VII"
+      },
+      "d": {
+        "s": {
+          "s": {
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Ptolemy IV"
+            },
+            "d": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Arsinoe III"
+            },
+            "name": "Ptolemy V"
+          },
+          "d": {
+            "s": {
+              "name": "Antiochus III of Syria"
+            },
+            "name": "Cleopatra I"
+          },
+          "name": "Ptolemy VI"
+        },
+        "d": {
+          "s": {
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Ptolemy IV"
+            },
+            "d": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Arsinoe III"
+            },
+            "name": "Ptolemy V"
+          },
+          "d": {
+            "s": {
+              "name": "Antiochus III of Syria"
+            },
+            "name": "Cleopatra I"
+          },
+          "name": "Cleopatra II"
+        },
+        "name": "Cleopatra III"
+      },
+      "name": "Ptolemy IX"
+    },
+    "d": {
+      "name": "Cleopatra Selene",
+      "s": {
+        "name": "Ptolemy VII",
+        "s": {
+          "name": "Ptolemy V",
+          "s": {
+            "s": {
+              "s": {
+                "s": {
+                  "name": "Ptolemy I"
+                },
+                "d": {
+                  "name": "Berenice I"
+                },
+                "name": "Ptolemy II"
+              },
+              "d": {
+                "name": "Arsinoe I"
+              },
+              "name": "Ptolemy III"
+            },
+            "d": {
+              "name": "Berenice II"
+            },
+            "name": "Ptolemy IV"
+          },
+          "d": {
+            "s": {
+              "s": {
+                "s": {
+                  "name": "Ptolemy I"
+                },
+                "d": {
+                  "name": "Berenice I"
+                },
+                "name": "Ptolemy II"
+              },
+              "d": {
+                "name": "Arsinoe I"
+              },
+              "name": "Ptolemy III"
+            },
+            "d": {
+              "name": "Berenice II"
+            },
+            "name": "Arsinoe III"
+          }
+        },
+        "d": {
+          "name": "Cleopatra I",
+          "s": {
+            "name": "Antiochus III of Syria"
+          }
+        }
+      },
+      "d": {
+        "name": "Cleopatra III",
+        "s": {
+          "s": {
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Ptolemy IV"
+            },
+            "d": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Arsinoe III"
+            },
+            "name": "Ptolemy V"
+          },
+          "d": {
+            "s": {
+              "name": "Antiochus III of Syria"
+            },
+            "name": "Cleopatra I"
+          },
+          "name": "Ptolemy VI"
+        },
+        "d": {
+          "s": {
+            "s": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Ptolemy IV"
+            },
+            "d": {
+              "s": {
+                "s": {
+                  "s": {
+                    "name": "Ptolemy I"
+                  },
+                  "d": {
+                    "name": "Berenice I"
+                  },
+                  "name": "Ptolemy II"
+                },
+                "d": {
+                  "name": "Arsinoe I"
+                },
+                "name": "Ptolemy III"
+              },
+              "d": {
+                "name": "Berenice II"
+              },
+              "name": "Arsinoe III"
+            },
+            "name": "Ptolemy V"
+          },
+          "d": {
+            "s": {
+              "name": "Antiochus III of Syria"
+            },
+            "name": "Cleopatra I"
+          },
+          "name": "Cleopatra II"
+        }
+      }
+    }
+  }
+}

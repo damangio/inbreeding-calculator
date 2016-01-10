@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="about">
+<head>
+    <title>Inbreeding Calculator | About</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="inbreeding coefficient calculator">
+    <meta name="description" content="Information about inbreeding, and instructions for using the Inbreeding Calculator">
+    <meta name="author" content="Sam Kauffman">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="about.js"></script>
+</head>
+
+<body>
+
+<h1>Inbreeding Calculator</h1>
+<h3>by Sam Kauffman of <a href="http://zikahamstery.weebly.com" target="_blank">Zika Hamstery</a></h3>
+
+<p>&darr; <a href="#instructions"><b>Jump to Instructions</b></a></p>
+<p><a href="/"><b>Go to Inbreeding Calculator</b></a></p>
+
+<h1 id="inbreeding">About inbreeding</h1>
+
+<p>This tool allows you to calculate the inbreeding coefficient of a pedigree. The inbreeding coefficient, commonly labeled <i>F</i> and expressed as a percent, is a measure of the amount of consanguinity in an individual’s ancestry. This method for giving a numeric value to inbreeding was created by Sewall Wright in 1922. If the individual’s parents are related, it is inbred, and its inbreeding coefficient is greater than zero. The value of the coefficient depends on how many common ancestors the individual’s parents have, how distant they are, and how many times they occur in the pedigree. Mathematically, it is the probability that for a given autosomal gene, the two alleles inherited from the parents will be autozygous, that is, not just homozygous (identical), but also having descended from the same exact allele in a common ancestor. “Identical by descent” is another term for this.</p>
+
+<p>It is well known that inbreeding has its detriments. Most mutations are recessive, and most are deleterious, or harmful. An individual with one copy of a deleterious recessive mutation still has one functional copy of the gene, so the mutation doesn’t affect the phenotype. The individual isn’t even known to have the mutation unless a genetic test is performed. However, if two of that individual’s offspring mate, the second generation offspring might inherit two copies of the deleterious recessive mutation, and the mutation’s negative effects will be realized. Thus inbreeding decreases the chances of viability and fitness of the offspring. This phenomenon is called inbreeding depression.</p>
+
+<p>The theory is simple enough, and it has also been confirmed repeatedly by observation. In economically important species, researchers have determined exactly how strongly inbreeding affects certain attributes. For example, in Holstein cattle, the inbreeding depression of lifetime milk production is −64 kg per 1% of inbreeding. So a cow with a high inbreeding coefficient of 15% will produce 950 kg less milk in her lifetime than one that isn’t inbred. That being said, all Holsteins are inbred to some extent, and the average U.S. Holstein inbreeding coefficient is 5.9%. <span class="source">[<a href="#hotspots" target="_blank">source</a>]</span></p>
+
+<p>It works in humans, too. Most genetic diseases are recessive, and they tend have higher rates of occurrence among genetically isolated populations, i.e., people that, for several generations, marry only within their group (endogamy), whether out of choice, like religious groups and royal families, or necessity, like island populations. The Amish and Mennonites of North America are one example that have proven excellent subjects for studies on inbreeding because not only are they a largely isolated population, but they have detailed written family histories, allowing researchers to trace gene carriers down through the generations.</p>
+
+<p>My father comes from several generations of Amish and Mennonites, and I have used these family records to calculate his inbreeding coefficient of 0.32%. His parents are double fourth cousins. If that sounds like a travesty to you, check out some of the <a href="#references">links below</a> about social attitudes toward consanguineous marriage throughout history. Who knows? Maybe your parents are fourth cousins. To be certain that they <i>aren’t</i>, you would have to know all 64 of your great-great-great-great-grandparents. Of course, if your parents are of different ethnic groups, you know they are not related.</p>
+
+<p>Some of the most famous accounts of inbreeding come from royal dynasties which practiced marriage between relatives in order to keep their blood pure or to avoid sharing power with other families. Regular consanguineous marriage was practiced by the rulers of several ancient civilizations. In ancient Egypt, it was normal for the Pharaoh’s eldest daughter and son to marry each other and become the new rulers. Over the generations, the negative effects of inbreeding were realized; Pharaoh Tutankhamen is believed to have had several genetic afflictions.</p>
+
+<p>The monarchs of Europe were no exception. No account of the consequences of inbreeding is more ubiquitous than that of the House of Habsburg, the Austrian royal family who expanded their power to cover half of Western Europe. One of their main ways of keeping that power was to avoid marrying anyone else. Several generations of inbreeding let to increasingly pronounced mandibular prognathism, a condition causing a jutting jaw and severe underbite. This culminated in King Charles II of Spain (1661-1700). His inbreeding coefficient was a shocking 25.4% (see <a href="#examples">examples</a> below). That’s higher than the inbreeding coefficient of the offspring of two full siblings. In addition to the trademark “Habsburg lip”, he had several other mental and physical disabilities. To top it off, he was infertile, so that was the end of the inbreeding; ultimately the problem solved itself. The inbred Habsburgs had a high rate of child mortality, so when Charles died young, no Spanish Habsburg was left to succeed him, and another royal family took over the Spanish throne. You can read more about Charles and the Habsburgs <a href="#references">here</a>.</p>
+
+<p>I breed Syrian hamsters, and I created this tool to enable me to be aware of the amount of inbreeding in my hamsters, and to create breeding plans that minimize inbreeding. I plan to use it to run some simulations on various breeding patterns, which I’ll post later on. Of course, minimizing inbreeding is not the primary goal of anybody breeding domestic animals; it is to produce quality animals. If an individual has excellent traits, you want to increase the genetic contribution of that individual to later generations, and this can only be done through inbreeding. A breeder must strike a balance. Fortunately, this tool shows not only the total amount of inbreeding, but how much comes through which ancestors, so you can tell whose genes are being concentrated. Know, however, that inbreeding through a phenotypically excellent ancestor does not offer any protection from the dangers of deleterious recessive mutations.</p>
+
+<p>Breeders working with laboratory rodents have different goals, and they may try to maximize the inbreeding coefficient. In medical research, it is ideal for the subjects to be as genetically similar as possible, and this is achieved through intentional extreme inbreeding. Many of the most commonly used strains of laboratory mice have inbreeding coefficients close to 100%.</p>
+
+<p>Inbreeding calculations, of course, are only as good as the data in the pedigree. Adding data by making the pedigree deeper might bring new common ancestors to light. Thus, adding data can increase the inbreeding coefficient but will never decrease it. If you go back further, you will always find more inbreeding. We are all inbred to some extent. As proof of that, if you assume there is no consanguinity in your pedigree, then your number of ancestors must increase by a factor of 2 for each generation back. Eventually, you will reach a number larger than the total human population at that time. All inbreeding calculations are performed under the assumption that there is no inbreeding except what can be determined from the pedigree. All domestic Syrian hamsters are descended from a litter that was captured in Syria in 1930, but that doesn’t figure into my inbreeding calculations simply because I don’t have the data linking my hamsters to those. However, my calculations will get more accurate as I produce more generations and my pedigrees get more complete.</p>
+
+<p>It must be mentioned that since the inbreeding coefficient is a probability, it represents the most likely proportion of an individual’s genes that are autozygous, but the actual proportion can still vary. Since meiosis involves some randomness, an individual might not have exactly 25% of its DNA coming from each grandparent. With each step of meiosis, the potential deviation from the inbreeding coefficient increases.</p>
+
+<b>Simple examples of inbreeding coefficients.</b> These numbers are correct if the common ancestors themselves are not inbred. If they are, the inbreeding coefficient will be higher.
+<table>
+    <tr>
+        <th>Relationship between parents</th>
+        <th>Parents’ common ancestor(s)</th>
+        <th>Inbreeding coefficient</th>
+    </tr>
+    <tr><th colspan="3" class="subheading">Collaterally related parents</th></tr>
+    <tr><td>Siblings</td><td>Both parents</td><td>25.000%</td></tr>
+    <tr><td>Half-siblings</td><td>One parent</td><td>12.500%</td></tr>
+    <tr><td>Uncle-niece<br>Aunt-nephew</td><td>Both parents = grandparents</td><td>12.500%</td></tr>
+    <tr><td>Half-uncle-niece<br>Half-aunt-nephew</td><td>Parent = grandparent</td><td>6.250%</td></tr>
+    <tr><td>Granduncle-grandniece<br>Grandaunt-grandnephew</td><td>Both parents = G-grandparents</td><td>6.250%</td></tr>
+    <tr><td>1st cousins</td><td>Pair of grandparents</td><td>6.250%</td></tr>
+    <tr><td>Half-granduncle-grandniece<br>Half-grandaunt-grandnephew</td><td>Parent = G-grandparent</td><td>3.125%</td></tr>
+    <tr><td>Half-1st cousins</td><td>Grandparent</td><td>3.125%</td></tr>
+    <tr><td>1st cousins once removed</td><td>Pair of grandparents = G-grandparents</td><td>3.125%</td></tr>
+    <tr><td>Half-1st cousins once removed</td><td>Grandparent = G-grandparent</td><td>1.563%</td></tr>
+    <tr><td>1st cousins twice removed</td><td>Pair of grandparents = 2G-grandparents</td><td>1.563%</td></tr>
+    <tr><td>2nd cousins</td><td>Pair of G-grandparents</td><td>1.563%</td></tr>
+    <tr><td>Half-1st cousins twice removed</td><td>Grandparent = 2G-grandparent</td><td>0.781%</td></tr>
+    <tr><td>Half-2nd cousins</td><td>G-grandparent</td><td>0.781%</td></tr>
+    <tr><td>2nd cousins once removed</td><td>Pair of G-grandparents = 2G-grandparents</td><td>0.781%</td></tr>
+    <tr><td>Half-2nd cousins once removed</td><td>G-grandparent = 2G-grandparent</td><td>0.391%</td></tr>
+    <tr><td>2nd cousins twice removed</td><td>Pair of G-grandparents = 3G-grandparents</td><td>0.391%</td></tr>
+    <tr><td>3rd cousins</td><td>Pair of 2G-grandparents</td><td>0.391%</td></tr>
+    <tr><td>Half-2nd cousins twice removed</td><td>G-grandparent = 3G-grandparent</td><td>0.195%</td></tr>
+    <tr><td>Half-3rd cousins</td><td>2G-grandparent</td><td>0.195%</td></tr>
+    <tr><td>3rd cousins once removed</td><td>Pair of 2G-grandparents = 3G-grandparents</td><td>0.195%</td></tr>
+    <tr><th colspan="3" class="subheading">Directly related parents</th></tr>
+    <tr><td>Self-fertilization, clones, or identical twins*</td><td>self</td><td>50.000%</td></tr>
+    <tr><td>Parent-offspring</td><td>self = parent</td><td>25.000%</td></tr>
+    <tr><td>Grandparent-grandoffspring</td><td>self = grandparent</td><td>12.500%</td></tr>
+    <tr><td>G-grandparent-G-grandoffspring</td><td>self = G-grandparent</td><td>6.250%</td></tr>
+</table>
+<p><small>*This is not possible in organisms such as mammals, in which the parents must be of opposite sexes.</small></p>
+
+
+<h1 id="instructions">Instructions</h1>
+
+<p><b>The basics:</b> Enter the names of the ancestors in the pedigree and click Calculate to get the inbreeding coefficient and breakdown. With deep pedigrees (>9 generations), this may take several seconds. It is fine to leave the offspring field blank. If you are typing a name that is already in the pedigree (after all, this is all about inbreeding), a menu will pop up and you can click on the name you want. When you do, all ancestors of the individual will be copied from the individual’s other occurrence. If you make changes to the ancestry of an individual that occurs more than once, the changes will immediately be reflected in all occurrences of the individual. This works intuitively.</p>
+
+<p><b>Names:</b> It is important to understand that individuals are identified by this tool only by their <b>name</b>, which is, frankly, whatever you choose to type into a field. If two fields contain the same text, they are assumed to refer to the same individual. Therefore if you have more than one John Smith in your pedigree, you will need to distinguish them in some way, like by breeder prefix or birth year, or use the ID numbers from a genealogy database you may by using. Likewise, Be sure you spell the names correctly. This tool will not recognize “John Smith” and “JOhn Smith” as the same individual. The auto-fill menu should help with this, allowing you to select an existing name by clicking instead of typing.</p>
+
+<p><b>Identical twins:</b> Identical twins are a special case. The have the same DNA, so as far as these calculations are concerned, they should be treated as the same individual (the same goes for clones). Given two identical twins Daniel and Darrell, Daniel’s offspring and Darrell’s offspring are genetically as closely related to each other as half siblings are, that is, as closely related as two of Daniel’s offspring would be to each other if they had different mothers. In this tool, therefore, you should use the same name to identify both identical twins, for example, “Daniel and Darrell”.</p>
+
+<p><b>Generation selector:</b> The generation selector lets you control how much of the pedigree you see. The max is 12. Data is stored back up to 12 generations, regardless of how many generations you see. If an individual in the farthest right column has ancestor data, a clickable arrow will show up, telling you that there is more data there.</p>
+
+<p><b>Data persistence:</b> What good is all this data if you can’t save it? Well, you can. Not in the web application itself, but you can copy the data to a file on your computer. Fill out the pedigree and then click “Show offspring’s data.” The text area below the controls will be filled with a blob of text (JSON format, if you’re curious). Simply select all of it (Ctrl+A) and copy (Ctrl+C). Then open a new text file on your computer and paste the blob of text. Save it with the extension “.json” or “.txt”. Reload the web page. (All fields should be blank. If you find that your browser has kindly filled some in for you, click “Clear pedigree.”) Copy the text from the file and paste it into the text area. Then click “Populate pedigree.” There is your pedigree, just as you left it.</p>
+
+<p><b>Building pedigrees:</b> Below the generation selector there are three pairs of buttons. The two in each pair do essentially the same thing, but the first one operates one the entire pedigree, while the second operates only  the individual you have currently selected and its ancestors. Those are available only when there is an individual selected. This allows you to use existing pedigrees to provide parts for new pedigrees. For example, if you have two hamsters with pedigrees saved on your computer and you want to calculate the inbreeding coefficient of their potential offspring, just use the “Populate selected individual and ancestors” button to put their data in the “sire” and “dam” fields, and there is your new pedigree. You don’t have to enter any new data.</p>
+
+<p><b>The nitty-gritty:</b> If you want to get a closer look at the data stored in the tool, press F12 to open your browser’s JavaScript console, type “ancestors” and press Enter. It will list all the individuals in alphabetical order and show how many times each appears in the pedigree. You can use this as handy way to look for typos in the names. If you type “pedigree”, you can see the pedigree data as it would be outputted by the “Show offspring’s data” button.</p>
+
+<p><b>Privacy:</b> No data you enter in this tool is sent anywhere. All computation is done on your computer.</p>
+
+<p><b>Development:</b> This program and its documentation were created and are maintained by Sam Kauffman. The source code is available on <a href="https://github.com/damangio/inbreeding-calculator" target="_blank">GitHub</a>. With questions, comments, or bugs, email <a href="mailto:zikahamstery@gmail.com" target="_blank">zikahamstery@gmail.com</a>. Bugs can also be reported on GitHub.</p>
+
+
+<h1 id="examples">Examples</h1>
+
+<p>Here are some real-life examples of pedigrees that you can paste into the Inbreeding Calculator and calculate the inbreeding coefficient for yourself. Select the entire blob of text (Click inside the box and press Ctrl+A), paste into the Inbreeding Calculator, and click “Populate pedigree from pasted data.”</p>
+
+<div class="example">
+<p>Here are the pedigrees of two champion American racehorses, back seven generations. <span class="source">[<a href="http://www.pedigreequery.com/" target="_blank">source</a>]</span></p>
+<p>California Chrome: 2.94%</p>
+<textarea id="California_Chrome"></textarea>
+<p>American Pharaoh: 0.93%</p>
+<textarea id="American_Pharaoh"></textarea>
+</div>
+
+<div class="example">
+<p>As mentioned above, the Pharaohs were into sibling marriage. Examine the 18th Dynasty of Egypt, and you’ll find three individuals with a 25% inbreeding coefficient, and Aames has 37.5%. <span class="source">[<a href="http://www.genetic-genealogy.co.uk/Toc115570144.html" target="_blank">source</a>]</span></p>
+<textarea id="Ex_4_Hatshepsut"></textarea>
+<p>The 32nd and last dynasty of Egypt, the Ptolemies, although they were not actually Egyptian but Macedonian Greeks, adopted the practice. Also notable is they they named most of their sons Ptolemy and most of their daughters Cleopatra. The last Pharaoh, Cleopatra VII (the famous Cleopatra) had an astonishingly high inbreeding coefficient of 45.26%. Remarkably, there are no accounts of genetic conditions among the Ptolemies. <span class="source">[<a href="http://phylonetworks.blogspot.com/2014/05/cleopatra-ambition-and-family-networks.html" target="_blank">source</a>]</span></p>
+<textarea id="Cleopatra"></textarea>
+</div>
+
+<div class="example">
+<p>Speaking of genetic conditions, here is the pedigree of Charles II of Spain to five generations: <span class="source">[<a href="http://phylonetworks.blogspot.com/2012/11/family-trees-pedigrees-and.html" target="_blank">source</a>]</span></p>
+<textarea id="Charles_II_5_gen"></textarea>
+<p>The inbreeding coefficient is 23.10%. Using Wikipedia, I filled out the pedigree to nine generations (although there is so much overlap among generations, some branches go back to twelve), bringing the inbreeding coefficient to 24.70%. Try this example in the Inbreeding Calculator and see how many common ancestors it finds!</p>
+<textarea id="Charles_II_9_gen"></textarea>
+<p>Researchers Alvarez, Ceballos, and Quinteiro have traced Charles’s pedigree back <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0005174" target="_blank">sixteen generations</a>, which pushed the inbreeding coefficient up to 25.4%, higher than the 25.0% found in the offspring of full siblings. This demonstrates how adding more data can make the inbreeding coefficient go up.</p>
+</div>
+
+<div class="example">
+<p>If you’re interested in the math involved in inbreeding calculations, <a href="http://www.genetic-genealogy.co.uk/Toc115570144.html" target="_blank">here is a page</a> that explains it, with several examples that I tested in this tool to make sure my algorithm was working right.</p>
+<p>Example 1: Inbred common ancestor: 6.45%</p>
+<textarea id="Ex_1_Inbred_common_ancestor"></textarea>
+<p>Example 2: No inbred common ancestor: 7.03%</p>
+<textarea id="Ex_2_No_inbred_common_ancestors"></textarea>
+<p>Example 3: Three generations of sibling mating: 50.00%</p>
+<textarea id="Ex_3_3_generations_of_sib_mating"></textarea>
+<p>Example 4: Pharaoh Hatshepsut: 25.00%, data <a href="#Ex_4_Hatshepsut">above</a></p>
+<p>Example 5: Directly related parents: 31.25%</p>
+<textarea id="Ex_5_Directly_related_parents"></textarea>
+<p>Example 6: Directly and collaterally related parents: 33.20%</p>
+<textarea id="Ex_6_Directly_and_collaterally_related_parents"></textarea>
+</div>
+
+<h1 id="references">References and recommended reading</h1>
+
+<h4>Inbreeding in general, and social attitudes toward it</h4>
+<ul>
+    <li><a href="http://io9.gizmodo.com/5863666/why-inbreeding-really-isnt-as-bad-as-you-think-it-is">Why inbreeding really isn’t as bad as you think it is</a> by Alasdair Wilkins at io9</li>
+    <li><a href="http://gizmodo.com/the-science-of-marrying-your-cousin-1522745684">The Science of Marrying Your Cousin</a> by Melissa at Gizmodo</li>
+    <li><a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.0060320">“It's Ok, We're Not Cousins by Blood”: The Cousin Marriage Controversy in Historical Perspective</a> by Diane B. Paul and Hamish G. Spencer</li>
+    <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Inbreeding">Inbreeding</a>, <a href="https://en.wikipedia.org/wiki/Inbreeding_depression">Inbreeding depression</a>, <a href="https://en.wikipedia.org/wiki/Consanguinity">Consanguinity</a></li>
+</ul>
+
+<h4>The inbreeding coefficient</h4>
+<ul>
+    <li>Sewall Wright’s original 1922 paper: <a href="https://aipl.arsusda.gov/publish/other/wright1922.pdf">Coefficients of Inbreeding and Relationship</a></li>
+    <li>Chapter 5 in D. S. Falconer’s <i><a href="https://ia801701.us.archive.org/18/items/introductiontoq00falc/introductiontoq00falc.pdf">Introduction to Quantitative Genetics</a></i>. From this book I learned how to do inbreeding calculations. I found this book because it’s cited in Randall Munroe’s <i><a href="http://www.barnesandnoble.com/w/what-if-serious-scientific-answers-to-absurd-hypothetical-questions-randall-munroe/1118864093">What If?</a></i>, which I highly recommend.</li>
+    <li><a href="http://www.genetic-genealogy.co.uk/Toc115570144.html">Tutorial on inbreeding calculations</a> in F. M. Lancaster’s <i><a href="http://www.genetic-genealogy.co.uk/index.html">Genetic and Quantitative Aspects of Genealogy</a></i></li>
+    <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Inbreeding">Coefficient of Relationship</a></li>
+</ul>
+
+<h4>Inbreeding in dairy cattle</h4>
+<ul>
+    <li><a href="https://www.cdcb.us/publish/jds/1995/78_1584.pdf">Calculation and Use of Inbreeding  Coefficients for Genetic Evaluation of United States Dairy Cattle</a> by G. R. Wiggans, P. M. VanRaden, and J. Zuurbier (1995)</li>
+    <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/9812278">The effects of inbreeding on the lifetime performance of dairy cattle</a> by L.A. Smith, B. G. Cassel, and R. E. Pearson (1998)</li>
+    <li id="hotspots">“What’s new about inbreeding?” by David Selner in the <a href="http://www.holsteinplaza.com/assets/magazine/hotspots-50021.pdf">Autumn 2015 issue of <i>Hotspots</i> magazine</a>, page 48. The data I quoted are from here.</li>
+</ul>
+
+<h4>Inbreeding in the Habsburg dynasty</h4>
+<ul>
+    <li><a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0005174">The Role of Inbreeding in the Extinction of a European Royal Dynasty</a> by Gonzalo Alvarez,     Francisco C. Ceballos, and Celsa Quinteiro. These are the folks who calculated Charles II’s inbreeding coefficient.
+    <li><a href="http://phylonetworks.blogspot.com/2012/11/family-trees-pedigrees-and.html">Family trees, pedigrees and hybridization networks</a> by David Morrison at The Genealogical World of Phylogenetic Networks</li>
+    <li><a href="http://scienceblogs.com/notrocketscience/2009/04/14/how-inbreeding-killed-off-a-line-of-kings/">How inbreeding killed off a line of kings</a> by Ed Yong at Not Exactly Rocket Science</li>
+    <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Charles_II_of_Spain">Charles II of Spain</a></li>
+</ul>
+
+<h4>Inbreeding among North American Anabaptists</h4>
+<ul>
+    <li><a href="http://phylonetworks.blogspot.com/2014/09/the-importance-of-amish-for-reticulate.html">The importance of the Amish for reticulate genealogies</a> by David Morrison at The Genealogical World of Phylogenetic Networks</li>
+    <li><a href="http://www.ncbi.nlm.nih.gov/pubmed/10449652">Towards a complete North American Anabaptist genealogy: A systematic approach to merging partially overlapping genealogy resources</a> by R. Agarwala, L. G. Biesecker, J.F. Tomlin, and A. A. Schäffer</li>
+    <li> <a href="http://www.ncbi.nlm.nih.gov/pubmed/11512680">Towards a complete North American Anabaptist Genealogy II: analysis of inbreeding</a> by R. Agarwala, A. A. Schäffer, and J.F. Tomlin</li>
+    <li><a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4391560/">An Estimate of the Average Number of Recessive Lethal Mutations Carried by Humans</a> by Ziyue Gao, Darrel Waggoner, Matthew Stephens, Carole Ober, and Molly Przeworski. They studied the occurrence of genetic diseases among North American Hutterites.</li>
+    <li><a href="http://www.saga-omii.org/">Swiss Anabaptist Genealogical Association</a>, an organization that hosts several genealogical databases of people descended from Anabaptist immigrants to North America</li>
+</ul>
+
+<h4>Other historical examples of inbreeding</h4>
+<p>By David Morrison at The Genealogical World of Phylogenetic Networks:</p>
+<ul>
+    <li><a href="http://phylonetworks.blogspot.com/2014/03/tutankhamun-and-extreme-consanguinity.html">Tutankhamun and the 18th dynasty of Egypt</a></li>
+    <li><a href="http://phylonetworks.blogspot.com/2014/05/cleopatra-ambition-and-family-networks.html">Cleopatra and the 32nd dynasty of Egypt</a></li>
+    <li><a href="http://phylonetworks.blogspot.com/2013/05/charles-darwins-family-pedigree-network.html">Charles Darwin</a></li>
+    <li><a href="http://phylonetworks.blogspot.com/2014/01/albert-einsteins-consanguineous-marriage.html">Albert Einstein</a></li>
+    <li><a href="http://phylonetworks.blogspot.com/2014/01/albert-einsteins-consanguineous-marriage.html">Henri Toulouse-Lautrec</a></li>
+</ul>

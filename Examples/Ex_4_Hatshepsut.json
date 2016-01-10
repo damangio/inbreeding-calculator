@@ -1,0 +1,75 @@
+{
+  "name": "Hatshepsut",
+  "s": {
+    "name": "Thotmes I",
+    "s": {
+      "name": "Amenhotep I",
+      "s": {
+        "s": {
+          "name": "Sequenera III"
+        },
+        "d": {
+          "name": "Aahotep I"
+        },
+        "name": "Aahmes"
+      },
+      "d": {
+        "s": {
+          "name": "Sequenera III"
+        },
+        "d": {
+          "name": "Aahotep I"
+        },
+        "name": "Aahmes-Nefertari"
+      }
+    },
+    "d": {
+      "name": "Senseneb"
+    }
+  },
+  "d": {
+    "name": "Aames",
+    "s": {
+      "name": "Amenhotep I",
+      "s": {
+        "s": {
+          "name": "Sequenera III"
+        },
+        "d": {
+          "name": "Aahotep I"
+        },
+        "name": "Aahmes"
+      },
+      "d": {
+        "s": {
+          "name": "Sequenera III"
+        },
+        "d": {
+          "name": "Aahotep I"
+        },
+        "name": "Aahmes-Nefertari"
+      }
+    },
+    "d": {
+      "name": "Aahotep II",
+      "s": {
+        "name": "Aahmes",
+        "s": {
+          "name": "Sequenera III"
+        },
+        "d": {
+          "name": "Aahotep I"
+        }
+      },
+      "d": {
+        "name": "Aahmes-Nefertari",
+        "s": {
+          "name": "Sequenera III"
+        },
+        "d": {
+          "name": "Aahotep I"
+        }
+      }
+    }
+  }
+}

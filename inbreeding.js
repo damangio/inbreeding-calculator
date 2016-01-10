@@ -227,6 +227,8 @@ function showHideGenerations(numGens, focusField) {
     // Focus the field the user last worked with.
     if (focusField !== undefined) {
         focusField.focus();
+        // If a field was passed, that means "More" was clicked, so scroll to the right.
+        $('#pedigree').scrollLeft($('#pedigree').width());
     } else if (generationsField) {
         if (document.contains(generationsField[0])) {
         // Field hasn't been removed
@@ -742,10 +744,10 @@ function doCalculation() {
         }
     }
 
-    $('#result').text((common2.reduce(function(a, b) {
+    $('#result').html('<i>F</i> = ' + (common2.reduce(function(a, b) {
             return {inbreeding: a.inbreeding + b.inbreeding * (b.times || 1)};
             }, {inbreeding: 0.0}
-            ).inbreeding * 100.0).toFixedOrPrecision(2) + '%');
+        ).inbreeding * 100.0).toFixedOrPrecision(2) + '%');
     $('#breakdown').html(common2.map(function(anc) {
         if ('times' in anc) {
             return '<li><b>' + (anc.inbreeding * 100).toFixedOrPrecision(2)

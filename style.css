@@ -103,3 +103,40 @@ ul.name-choices > li:hover {
 	border: 1px solid gray;
 	text-align: center;
 }
+
+/* About page */
+
+html.about {
+	line-height: 22px;
+}
+.about body {
+	width: 800px;
+	margin: 0 auto;
+}
+.about h1 {
+	font-size: 24px;
+	margin-top: 1em;
+}
+.about table th,
+.about table td {
+	border: 1px solid #CCC;
+	padding: 0 4px;
+}
+.about table th {
+	background: white;
+}
+.about table th.subheading {
+	text-align: left;
+	font-style: italic;
+}
+.source {
+    vertical-align: super;
+    font-size: smaller;
+}
+.example {
+	margin: 1.5em 0;
+}
+.example p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
