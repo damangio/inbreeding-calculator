@@ -780,6 +780,7 @@ function clear(node, code) {
 function clearField (field) {
     var code = getCode(field);
     var node;
+    var fieldsToClear;
     try {
         node = getNodeFromCode(code);
     } catch(e) {
@@ -787,6 +788,18 @@ function clearField (field) {
     }
 
     clear(node, code); // Recursive
+
+    // The browser might have filled in fields that don't correspond to any pedigree
+    // data, so clear fields now.
+    if (code) {
+        fieldsToClear = $('input[id^=' + code + ']')
+    } else {
+        // starting with offspring; clear all the fields
+        fieldsToClear = $('#pedigree input');
+    }
+    fieldsToClear.each(function(i, elem) {
+        $(elem).val('');
+    });
     
     replicate(code);
     updateMoreLabels();
