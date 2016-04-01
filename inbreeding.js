@@ -72,15 +72,16 @@ function getNodeFromName(name) {
     return node;
 }
 
-Number.prototype.toFixedOrPrecision = function (fixedDigits) {
-    /* Format the floating-point number with the given number of 
-    fixed digits, but if that makes it appear to be zero, format it
-    with 1 precision digit instead. */
-    var fixed = this.toFixed(fixedDigits);
-    if (parseFloat(fixed) === 0.0) {
-        return this.toPrecision(1);
+Number.prototype.toFixedOrPrecision = function (digits) {
+    /* Format the floating-point number with n decimal places if it is
+    at least 1. Otherwise format to n digits of precision. This way it
+    always has at least n decimal places and at least n digits of
+    precision. */
+    if (this >= 1.0) {
+        return this.toFixed(digits);
+    } else {
+        return this.toPrecision(digits);
     }
-    return fixed;
 }
 
 
