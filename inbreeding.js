@@ -310,12 +310,20 @@ function hideNameChoices() {
     }
 }
 
-function setFieldFromMenu () {
-    /* Populate the field (node) and its ancestors identically to the selected
-    name. If the name occurs more than once, prefer an occurrence that has
-    the most parents. */
+function setFieldFromMenu() {
     var newName = $(this).text();
     var field = $(this).parent().siblings('input.ind');
+    
+    populateFieldFromName(field, newName)
+    
+    // Remove the menu
+    $(this).parent().remove();
+}
+    
+function populateFieldFromName(field, newName) {
+    /* Populate the field (node) and its ancestors identically to the given
+    name. If the name occurs more than once, prefer an occurrence that has
+    the most parents. */
     var code; // Code of the ancestor we want to copy
     var node; // The node we want to copy
     var data; // Copy of that node's data
@@ -352,12 +360,11 @@ function setFieldFromMenu () {
     populateField(field, data);
 
     replicate(getCode(field));
-    
-    // Remove the menu
-    $(this).parent().remove();
 }
 
 function replicate(code) {
+    /* If this individual's offspring occurs anywhere else, populate
+    the other occurrence's parent with this individual's data. */
     var cleared = false;
     var parentType; // 's' or 'd'
     var node;
@@ -527,6 +534,7 @@ function clearName(name, code) {
 }
 
 function changeField() {
+    var field = $(this);
     var oldName = $(this).data('oldName');
     var newName = $(this).val();
     var code = getCode($(this));
@@ -544,6 +552,9 @@ function changeField() {
         removeInd(code);
     }
     $(this).data('oldName', newName); // Store the new name
+    
+    // Populate field if name already exists
+    populateFieldFromName(field, newName);
 }
 
 
