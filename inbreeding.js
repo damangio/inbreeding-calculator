@@ -122,6 +122,9 @@ function updateField(code, name) {
 
 function clearResult() {
     $('#result, #breakdown').html('');
+    // Set the controls area back to its normal width
+    $('body').removeClass('results');
+
 }
 
 // Use a 1/10-second delay for these because the buttons need to grab
@@ -420,6 +423,10 @@ function replicate(code) {
 
 function replicateField() {
     replicate(getCode($(this)));
+}
+
+function toggleBreakdown() {
+    $(this).toggleClass('open').toggleClass('closed');
 }
 
 
@@ -793,14 +800,23 @@ function doCalculation() {
             }, 0.0
         ) * 100.0).toFixedOrPrecision(2) + '%');
     $('#breakdown').html(common2.map(function(anc) {
-        anc_breakdown = anc.path_values.map(function(path_value) {
-            return '<li>' + (path_value.inbreeding * 100.0).toFixedOrPrecision(2) + '% (' +
-                path_value.num_paths + '&nbsp;path' + (path_value.num_paths > 1 ? 's' : '') + ')</li>';
-            }).join('\n');
-        return '<li><b>' + (anc.inbreeding * 100.0).toFixedOrPrecision(2) + '%</b> through ' + anc.name +
-            ' (' + anc.num_paths + '&nbsp;path' + (anc.num_paths > 1 ? 's' : '') + ')' +
+        if (anc.num_paths > 1) {
+            anc_breakdown = anc.path_values.map(function(path_value) {
+                return '<li>' + (path_value.inbreeding * 100.0).toFixedOrPrecision(2) +
+                    '% &times; ' + path_value.num_paths + '</li>';
+                }).join('\n');
+        } else {
+            anc_breakdown = '';
+        }
+        return (anc.num_paths > 1 ? '<li class="closed">' : '<li>') +
+            '<b class="coefficient">' + (anc.inbreeding * 100.0).toFixedOrPrecision(2) +
+            '%</b> <span class="through">through</span> <b>' + anc.name + '</b> (' +
+            anc.num_paths + '&nbsp;path' + (anc.num_paths > 1 ? 's' : '') + ')' +
             '<ul>' + anc_breakdown + '</ul></li>';
         }).join('\n'));
+        
+        // Widen the results area
+        $('body').addClass('results');
 }
 
 function clear(node, code) {
@@ -988,6 +1004,7 @@ function populateSelected() {
     populateFieldFromPaste(currentField);
 }
 
+
 /*****************************
 Initialization
 *****************************/
@@ -1008,7 +1025,9 @@ $(document).ready(function() {
     $('#show-selected-data').mousedown(showSelectedData);
     $('#populate').mousedown(populateAll);
     $('#populate-selected').mousedown(populateSelected);
-    // Elements in #pedigree are built dynamically so delegate handlers.
+    // Elements in #breakdown and #pedigree are built dynamically so delegate handlers.
+    $('#breakdown')
+        .on('click', '.open, .closed', toggleBreakdown)
     $('#pedigree')
         .on('change keydown', 'input.ind', clearResult)
         .on('focusin', 'input.ind', setCurrentField)

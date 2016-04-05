@@ -13,14 +13,61 @@ body {
     height: 100%;
     float: left;
 }
+body.results #controls {
+	width: 35%;
+}
 #result {
 	color: darkblue;
 }
 #breakdown {
+	padding-left: 0;
+}
+#breakdown > li {
+	list-style: none;
+	margin-left: 20px;
+    text-indent: -24px;
+	margin-bottom: 3px;
+}
+#breakdown > li.closed,
+#breakdown > li.open {
+	cursor: pointer;
+}
+#breakdown > li::before {
+	margin-right: 8px;
+	content: '\26ab';
+	color: #777;
+}
+#breakdown > li.closed::before {
+	margin-right: 6px;
+	content: '\25ba';
+	color: black;
+}
+#breakdown > li.open::before {
+	margin-right: 4px;
+	content: '\25bc';
+	color: black;
+}
+#breakdown > li ul {
 	padding-left: 20px;
 }
-#breakdown b {
+#breakdown > li ul li {
+	list-style-type: none;
+	margin-left: 0;
+	text-indent: 0;
+	overflow-y: hidden;
+	transition: max-height .5s cubic-bezier(0, 1, 0.5, 1);
+}
+#breakdown > li.closed ul li {
+	max-height: 0;
+}
+#breakdown > li.open ul li {
+	max-height: 200vh; /* ridiculously large max height */
+}
+#breakdown .coefficient {
 	color: darkblue;
+}
+#breakdown .through {
+	font-size: .9em
 }
 #textarea {
     width: 100%;
@@ -35,6 +82,9 @@ body {
     height: 85%;
     overflow: auto;
 }
+body.results #pedigree {
+    width: calc(65% - 20px);
+}	
 table {
     border-collapse: collapse;
     font-size: 1em;
