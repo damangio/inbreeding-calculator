@@ -725,50 +725,82 @@ function calculate() {
 function doCalculation() {
     var common; // list of common ancestors
     var common2 = []; // consolidated list of common ancestors
-    var interval;
+    var anc;
+    var anc_breakdown;
     var i;
     
     $(currentField).blur();
     ancestorCache = {}; // clear cache
     
     // Recursive
+    // Result is a list of objects with properties 'name' and 'inbreeding', each
+    // representing one inbreeding path.
     common = calculateForCode('', true);
-    
+    // Sort by name, then by inbreeding coefficient
     common.sort(function (a, b) {
+        if (a.name === b.name) {
+            return a.inbreeding < b.inbreeding ? 1 : -1;
+        }
+        return a.name < b.name ? -1 : 1;
+        });
+
+    // Consolidate the results to a list with one object per common ancestor
+    for (i = 0; i < common.length; i += 1) {
+        if (i > 0 && common[i - 1].name === common[i].name) {
+            anc = common2[common2.length - 1]; // for convenience
+            // increment ancestor
+            anc.num_paths += 1;
+            if (common[i - 1].inbreeding === common[i].inbreeding) {
+                // increment path value
+                anc.path_values[anc.path_values.length - 1].num_paths += 1;
+            } else {
+                // add new path value to ancestor
+                anc.path_values.push({
+                    inbreeding: common[i].inbreeding,
+                    num_paths: 1
+                    });
+            }
+        } else {
+            // add new ancestor
+            common2.push({
+                name: common[i].name,
+                num_paths: 1,
+                path_values: [{
+                    inbreeding: common[i].inbreeding,
+                    num_paths: 1
+                    }]
+                });
+        }
+    }
+    // Calculate total inbreeding coefficient for each common ancestor
+    for (i = 0; i < common2.length; i += 1) {
+        common2[i].inbreeding = common2[i].path_values.reduce(function(a, b) {
+            return a + b.inbreeding * b.num_paths
+            }, 0.0);
+    }
+    // Sort by total inbreeding coefficient, then by name
+    common2.sort(function (a, b) {
         if (a.inbreeding === b.inbreeding) {
             return a.name < b.name ? -1 : 1;
         }
         return a.inbreeding < b.inbreeding ? 1 : -1;
         });
-
-    for (i = 0; i < common.length; i += 1) {
-        if (i > 0 && common[i - 1].name === common[i].name &&
-                common[i - 1].inbreeding === common[i].inbreeding) {
-            // Don't add this one, but increment the previous one
-            if ('times' in common2[common2.length - 1]) {
-                common2[common2.length - 1].times += 1;
-            } else {
-                common2[common2.length - 1].times = 2;
-            }
-        } else {
-            // Add this one
-            common2.push(common[i]);
-        }
-    }
-
-    $('#result').html('<i>F</i> = ' + (common2.reduce(function(a, b) {
-            return {inbreeding: a.inbreeding + b.inbreeding * (b.times || 1)};
-            }, {inbreeding: 0.0}
-        ).inbreeding * 100.0).toFixedOrPrecision(2) + '%');
+    
+    // Display result and breakdown
+    $('#result').html('<i>F</i> = ' + (
+        common2.reduce(function(a, b) {
+            return a + b.inbreeding;
+            }, 0.0
+        ) * 100.0).toFixedOrPrecision(2) + '%');
     $('#breakdown').html(common2.map(function(anc) {
-        if ('times' in anc) {
-            return '<li><b>' + (anc.inbreeding * 100).toFixedOrPrecision(2)
-                + '%</b> through ' + anc.name + '&nbsp;<b>(x' + anc.times + ')</b></li>';
-        } else {
-            return '<li><b>' + (anc.inbreeding * 100).toFixedOrPrecision(2)
-                + '%</b> through ' + anc.name + '</li>';
-        }
-        }));
+        anc_breakdown = anc.path_values.map(function(path_value) {
+            return '<li>' + (path_value.inbreeding * 100.0).toFixedOrPrecision(2) + '% (' +
+                path_value.num_paths + '&nbsp;path' + (path_value.num_paths > 1 ? 's' : '') + ')</li>';
+            }).join('\n');
+        return '<li><b>' + (anc.inbreeding * 100.0).toFixedOrPrecision(2) + '%</b> through ' + anc.name +
+            ' (' + anc.num_paths + '&nbsp;path' + (anc.num_paths > 1 ? 's' : '') + ')' +
+            '<ul>' + anc_breakdown + '</ul></li>';
+        }).join('\n'));
 }
 
 function clear(node, code) {
