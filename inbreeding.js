@@ -991,6 +991,7 @@ function clearSelected() {
     });
 }
 function showOffspringData() {
+    $(currentField).change();
     showData($('input#offspring'));
 }
 function showSelectedData() {
