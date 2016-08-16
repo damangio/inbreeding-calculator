@@ -1,3 +1,10 @@
+/*
+Copyright 2015, 2016 Sam Kauffman
+
+Along with about.html, this file is licensed under a Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International License.
+*/
+
 /* Load the example JSON into the textareas. */
 
 var examples = [

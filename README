@@ -1,0 +1,19 @@
+Inbreeding Calulator
+by Sam Kauffman
+
+The Inbreeding Calculator is a standalone single-page web application
+consisting of the files index.html, inbreeding.js, and style.css. There is also
+another page, about.html, which contains an article about inbreeding,
+instructions for using the Inbreeding Calculator, sample pedigrees, and
+recommended reading. That page is not released under the GPL, but the
+instructions are also available in the file instructions.html, which is
+released under the GPL.
+
+The Inbreeding Calculator and its documentation were created and are maintained
+by Sam Kauffman of Zika Hamstery <zikahamstery.weebly.com>. It is released
+under the terms of the GNU General Public License, EXCEPT for the files
+about.html and about.js, which are licensed under a Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International License. The source
+code is available on GitHub <github.com/damangio/inbreeding-calculator>. With
+questions, comments, or bugs, email <zikahamstery@gmail.com>. Bugs can also be
+reported on GitHub.
